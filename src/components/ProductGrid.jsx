@@ -53,12 +53,9 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
   }
 
   return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.2 }}
+    <div
       onClick={onSelect}
-      className="group relative bg-[var(--card-bg)] rounded-2xl overflow-hidden border border-[var(--surface-border)] cursor-pointer active:scale-[0.98] transition-all duration-150"
+      className="group relative bg-[var(--card-bg)] rounded-2xl overflow-hidden border border-[var(--surface-border)] cursor-pointer active:scale-[0.98] transition-transform duration-150"
       style={{ boxShadow: 'var(--card-shadow)' }}
     >
       {/* Icon instead of image */}
@@ -121,6 +118,6 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
           )}
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
