@@ -13,7 +13,7 @@ export default function BottomNav({ activeTab, onTabChange }) {
   ]
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-50 bg-[var(--tg-theme-bg-color)]/90 backdrop-blur-xl border-t border-surface-100 safe-bottom">
+    <nav className="fixed bottom-0 inset-x-0 z-50 bg-[var(--tg-theme-bg-color)] backdrop-blur-xl border-t border-[var(--surface-border)] safe-bottom">
       <div className="flex items-center justify-around h-16 px-4">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id
@@ -33,7 +33,7 @@ export default function BottomNav({ activeTab, onTabChange }) {
                 <Icon 
                   size={24} 
                   weight={isActive ? 'fill' : 'regular'}
-                  className={isActive ? 'text-[var(--tg-theme-button-color)]' : 'text-surface-400'}
+                  className={isActive ? 'text-[var(--tg-theme-button-color)]' : 'text-[var(--tg-theme-hint-color)]'}
                 />
                 
                 {/* Badge */}
@@ -49,7 +49,7 @@ export default function BottomNav({ activeTab, onTabChange }) {
               </div>
               
               <span className={`text-[11px] font-medium ${
-                isActive ? 'text-[var(--tg-theme-button-color)]' : 'text-surface-400'
+                isActive ? 'text-[var(--tg-theme-button-color)]' : 'text-[var(--tg-theme-hint-color)]'
               }`}>
                 {tab.label}
               </span>

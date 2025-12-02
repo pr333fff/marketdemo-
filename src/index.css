@@ -10,6 +10,20 @@
   --tg-theme-button-color: #0ea5e9;
   --tg-theme-button-text-color: #ffffff;
   --tg-theme-secondary-bg-color: #f4f4f5;
+  --card-bg: #ffffff;
+  --surface-bg: #f4f4f5;
+  --surface-border: #e4e4e7;
+}
+
+/* Тёмная тема */
+.dark {
+  --tg-theme-bg-color: #18181b;
+  --tg-theme-text-color: #fafafa;
+  --tg-theme-hint-color: #a1a1aa;
+  --tg-theme-secondary-bg-color: #27272a;
+  --card-bg: #27272a;
+  --surface-bg: #27272a;
+  --surface-border: #3f3f46;
 }
 
 * {

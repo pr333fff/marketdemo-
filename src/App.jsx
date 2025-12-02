@@ -21,11 +21,28 @@ function App() {
       tg.ready()
       tg.expand()
       
+      // Определяем тёмную тему
+      const isDark = tg.colorScheme === 'dark'
+      if (isDark) {
+        document.documentElement.classList.add('dark')
+      }
+      
       // Применяем тему Telegram
-      document.documentElement.style.setProperty('--tg-theme-bg-color', tg.themeParams.bg_color || '#ffffff')
-      document.documentElement.style.setProperty('--tg-theme-text-color', tg.themeParams.text_color || '#18181b')
-      document.documentElement.style.setProperty('--tg-theme-hint-color', tg.themeParams.hint_color || '#71717a')
+      const bgColor = tg.themeParams.bg_color || (isDark ? '#18181b' : '#ffffff')
+      const textColor = tg.themeParams.text_color || (isDark ? '#fafafa' : '#18181b')
+      const hintColor = tg.themeParams.hint_color || (isDark ? '#a1a1aa' : '#71717a')
+      const secondaryBg = tg.themeParams.secondary_bg_color || (isDark ? '#27272a' : '#f4f4f5')
+      
+      document.documentElement.style.setProperty('--tg-theme-bg-color', bgColor)
+      document.documentElement.style.setProperty('--tg-theme-text-color', textColor)
+      document.documentElement.style.setProperty('--tg-theme-hint-color', hintColor)
+      document.documentElement.style.setProperty('--tg-theme-secondary-bg-color', secondaryBg)
       document.documentElement.style.setProperty('--tg-theme-button-color', tg.themeParams.button_color || '#0ea5e9')
+      
+      // Устанавливаем переменные для карточек
+      document.documentElement.style.setProperty('--card-bg', isDark ? '#27272a' : '#ffffff')
+      document.documentElement.style.setProperty('--surface-bg', secondaryBg)
+      document.documentElement.style.setProperty('--surface-border', isDark ? '#3f3f46' : '#e4e4e7')
     }
     
     setTimeout(() => setIsReady(true), 100)

@@ -62,7 +62,7 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay: index * 0.03, duration: 0.25 }}
       onClick={onSelect}
-      className="group relative bg-white rounded-xl overflow-hidden shadow-card cursor-pointer active:scale-[0.98] transition-transform duration-150"
+      className="group relative bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-card cursor-pointer active:scale-[0.98] transition-transform duration-150"
     >
       {/* Icon instead of image */}
       <div className="relative overflow-hidden">
@@ -118,7 +118,7 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
             {formatPrice(product.price)}
           </span>
           {product.oldPrice && (
-            <span className="text-[10px] text-surface-400 line-through">
+            <span className="text-[10px] text-[var(--tg-theme-hint-color)] line-through">
               {formatPrice(product.oldPrice)}
             </span>
           )}

@@ -48,7 +48,7 @@ export default function CartSheet({ onClose }) {
         className="fixed inset-y-0 right-0 z-50 w-full max-w-md bg-[var(--tg-theme-bg-color)] shadow-2xl"
       >
         {/* Header */}
-        <div className="flex items-center justify-between px-5 py-4 border-b border-surface-100">
+        <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--surface-border)]">
           <h2 className="text-lg font-bold text-[var(--tg-theme-text-color)]">
             Корзина
           </h2>
@@ -60,14 +60,14 @@ export default function CartSheet({ onClose }) {
                   clearCart()
                   window.Telegram?.WebApp?.HapticFeedback?.impactOccurred('medium')
                 }}
-                className="px-3 py-1.5 rounded-lg text-sm text-rose-500 hover:bg-rose-50 transition-colors"
+                className="px-3 py-1.5 rounded-lg text-sm text-rose-500 hover:opacity-80 transition-opacity"
               >
                 Очистить
               </motion.button>
             )}
             <button
               onClick={onClose}
-              className="w-8 h-8 flex items-center justify-center rounded-full bg-surface-100 text-surface-500"
+              className="w-8 h-8 flex items-center justify-center rounded-full bg-[var(--surface-bg)] text-[var(--tg-theme-hint-color)]"
             >
               <X size={18} weight="bold" />
             </button>
@@ -78,13 +78,13 @@ export default function CartSheet({ onClose }) {
         <div className="flex-1 overflow-y-auto h-[calc(100vh-180px)]">
           {cart.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full px-5 text-center">
-              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-surface-100 mb-4">
-                <CreditCard size={32} className="text-surface-400" />
+              <div className="w-20 h-20 flex items-center justify-center rounded-full bg-[var(--surface-bg)] mb-4">
+                <CreditCard size={32} className="text-[var(--tg-theme-hint-color)]" />
               </div>
               <p className="text-[var(--tg-theme-hint-color)]">
                 Корзина пуста
               </p>
-              <p className="text-sm text-surface-400 mt-1">
+              <p className="text-sm text-[var(--tg-theme-hint-color)] mt-1">
                 Добавьте товары из каталога
               </p>
             </div>
@@ -105,7 +105,7 @@ export default function CartSheet({ onClose }) {
         
         {/* Footer */}
         {cart.length > 0 && (
-          <div className="absolute bottom-0 inset-x-0 p-4 bg-[var(--tg-theme-bg-color)] border-t border-surface-100 safe-bottom">
+          <div className="absolute bottom-0 inset-x-0 p-4 bg-[var(--tg-theme-bg-color)] border-t border-[var(--surface-border)] safe-bottom">
             {/* Total */}
             <div className="flex items-center justify-between mb-4">
               <span className="text-[var(--tg-theme-hint-color)]">Итого</span>
@@ -118,14 +118,14 @@ export default function CartSheet({ onClose }) {
             <motion.button
               whileTap={{ scale: 0.98 }}
               onClick={handleCheckout}
-              className="w-full flex items-center justify-center gap-2 h-14 rounded-2xl bg-[var(--tg-theme-button-color)] text-[var(--tg-theme-button-text-color)] font-semibold shadow-lg shadow-primary-500/25"
+              className="w-full flex items-center justify-center gap-2 h-14 rounded-2xl bg-[var(--tg-theme-button-color)] text-[var(--tg-theme-button-text-color)] font-semibold shadow-lg"
             >
               <ShieldCheck size={20} weight="bold" />
               Оформить заказ
             </motion.button>
             
             {/* Demo notice */}
-            <p className="text-xs text-center text-surface-400 mt-3">
+            <p className="text-xs text-center text-[var(--tg-theme-hint-color)] mt-3">
               Демо-режим. Оплата не будет произведена.
             </p>
           </div>
@@ -142,7 +142,7 @@ function CartItem({ item, onUpdateQuantity, onRemove, formatPrice }) {
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, x: -100 }}
-      className="flex gap-3 p-3 bg-surface-50 rounded-2xl"
+      className="flex gap-3 p-3 bg-[var(--card-bg)] rounded-2xl"
     >
       {/* Image */}
       <div className="w-20 h-20 rounded-xl overflow-hidden flex-shrink-0">
@@ -164,14 +164,14 @@ function CartItem({ item, onUpdateQuantity, onRemove, formatPrice }) {
         
         {/* Controls */}
         <div className="flex items-center justify-between">
-          <div className="flex items-center gap-1 bg-white rounded-lg p-0.5">
+          <div className="flex items-center gap-1 bg-[var(--surface-bg)] rounded-lg p-0.5">
             <motion.button
               whileTap={{ scale: 0.9 }}
               onClick={() => {
                 onUpdateQuantity(item.quantity - 1)
                 window.Telegram?.WebApp?.HapticFeedback?.impactOccurred('light')
               }}
-              className="w-7 h-7 flex items-center justify-center rounded-md text-surface-500 hover:bg-surface-100"
+              className="w-7 h-7 flex items-center justify-center rounded-md text-[var(--tg-theme-hint-color)] hover:opacity-80"
             >
               <Minus size={14} weight="bold" />
             </motion.button>
@@ -184,7 +184,7 @@ function CartItem({ item, onUpdateQuantity, onRemove, formatPrice }) {
                 onUpdateQuantity(item.quantity + 1)
                 window.Telegram?.WebApp?.HapticFeedback?.impactOccurred('light')
               }}
-              className="w-7 h-7 flex items-center justify-center rounded-md text-surface-500 hover:bg-surface-100"
+              className="w-7 h-7 flex items-center justify-center rounded-md text-[var(--tg-theme-hint-color)] hover:opacity-80"
             >
               <Plus size={14} weight="bold" />
             </motion.button>

@@ -8,7 +8,7 @@ export default function Header() {
   const { searchQuery, setSearchQuery } = useStore()
 
   return (
-    <header className="sticky top-0 z-40 bg-[var(--tg-theme-bg-color)]/80 backdrop-blur-xl border-b border-surface-100">
+    <header className="sticky top-0 z-40 bg-[var(--tg-theme-bg-color)]/80 backdrop-blur-xl border-b border-[var(--surface-border)]">
       <div className="px-4 py-3">
         <div className="flex items-center justify-between gap-3">
           {!isSearchOpen ? (
@@ -25,7 +25,7 @@ export default function Header() {
               <motion.button
                 whileTap={{ scale: 0.92 }}
                 onClick={() => setSearchOpen(true)}
-                className="w-10 h-10 flex items-center justify-center rounded-xl bg-surface-100 text-surface-600 hover:bg-surface-200 transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-xl bg-[var(--surface-bg)] text-[var(--tg-theme-text-color)] hover:opacity-80 transition-opacity"
               >
                 <MagnifyingGlass size={20} weight="bold" />
               </motion.button>
@@ -39,7 +39,7 @@ export default function Header() {
               <div className="flex-1 relative">
                 <MagnifyingGlass 
                   size={18} 
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-surface-400" 
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[var(--tg-theme-hint-color)]" 
                 />
                 <input
                   type="text"
@@ -47,7 +47,7 @@ export default function Header() {
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   autoFocus
-                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-surface-100 text-[var(--tg-theme-text-color)] placeholder:text-surface-400 outline-none focus:ring-2 focus:ring-primary-500/20 transition-shadow"
+                  className="w-full h-10 pl-10 pr-4 rounded-xl bg-[var(--surface-bg)] text-[var(--tg-theme-text-color)] placeholder:text-[var(--tg-theme-hint-color)] outline-none focus:ring-2 focus:ring-blue-500/20 transition-shadow"
                 />
               </div>
               
@@ -57,7 +57,7 @@ export default function Header() {
                   setSearchOpen(false)
                   setSearchQuery('')
                 }}
-                className="w-10 h-10 flex items-center justify-center rounded-xl text-surface-500 hover:bg-surface-100 transition-colors"
+                className="w-10 h-10 flex items-center justify-center rounded-xl text-[var(--tg-theme-hint-color)] hover:opacity-80 transition-opacity"
               >
                 <X size={20} weight="bold" />
               </motion.button>

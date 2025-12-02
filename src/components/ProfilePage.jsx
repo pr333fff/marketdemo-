@@ -111,7 +111,7 @@ export default function ProfilePage() {
       
       {/* Menu */}
       <div className="px-4">
-        <div className="bg-surface-50 rounded-2xl overflow-hidden">
+        <div className="bg-[var(--card-bg)] rounded-2xl overflow-hidden">
           <MenuItem 
             icon={ShoppingBag} 
             label="Мои заказы" 
@@ -138,8 +138,8 @@ export default function ProfilePage() {
       
       {/* Demo notice */}
       <div className="px-4 mt-6">
-        <div className="p-4 rounded-2xl bg-primary-50 border border-primary-100">
-          <p className="text-sm text-primary-700 text-center">
+        <div className="p-4 rounded-2xl bg-blue-500/10 border border-blue-500/20">
+          <p className="text-sm text-blue-400 text-center">
             Это демо-профиль для демонстрации возможностей приложения
           </p>
         </div>
@@ -153,7 +153,7 @@ function StatCard({ icon: Icon, label, value, color, small }) {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="p-4 rounded-2xl bg-surface-50"
+      className="p-4 rounded-2xl bg-[var(--card-bg)]"
     >
       <div className={`w-10 h-10 rounded-xl ${color} bg-opacity-10 flex items-center justify-center mb-3`}>
         <Icon size={20} className={color.replace('bg-', 'text-')} />
@@ -170,18 +170,18 @@ function MenuItem({ icon: Icon, label, subtitle, isLast }) {
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}
-      className={`w-full flex items-center gap-4 p-4 text-left hover:bg-surface-100 transition-colors ${
-        !isLast ? 'border-b border-surface-100' : ''
+      className={`w-full flex items-center gap-4 p-4 text-left hover:opacity-80 transition-opacity ${
+        !isLast ? 'border-b border-[var(--surface-border)]' : ''
       }`}
     >
-      <div className="w-10 h-10 rounded-xl bg-surface-100 flex items-center justify-center">
+      <div className="w-10 h-10 rounded-xl bg-[var(--surface-bg)] flex items-center justify-center">
         <Icon size={20} className="text-[var(--tg-theme-text-color)]" />
       </div>
       <div className="flex-1">
         <p className="text-sm font-medium text-[var(--tg-theme-text-color)]">{label}</p>
         <p className="text-xs text-[var(--tg-theme-hint-color)]">{subtitle}</p>
       </div>
-      <CaretRight size={18} className="text-surface-400" />
+      <CaretRight size={18} className="text-[var(--tg-theme-hint-color)]" />
     </motion.button>
   )
 }

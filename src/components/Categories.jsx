@@ -37,7 +37,7 @@ function CategoryChip({ label, isActive, onClick }) {
         transition-colors duration-200
         ${isActive 
           ? 'text-white' 
-          : 'text-[var(--tg-theme-text-color)] bg-surface-100 hover:bg-surface-200'
+          : 'text-[var(--tg-theme-text-color)] bg-[var(--surface-bg)] hover:opacity-80'
         }
       `}
     >
