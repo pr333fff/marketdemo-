@@ -20,10 +20,7 @@ export default function ProductGrid() {
 
   return (
     <div className="px-3 py-3">
-      <motion.div 
-        layout
-        className="grid grid-cols-3 max-[380px]:grid-cols-2 gap-2"
-      >
+      <div className="grid grid-cols-3 max-[380px]:grid-cols-2 gap-2">
         {products.map((product, index) => (
           <ProductCard
             key={product.id}
@@ -37,7 +34,7 @@ export default function ProductGrid() {
             }}
           />
         ))}
-      </motion.div>
+      </div>
     </div>
   )
 }
@@ -57,10 +54,9 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
 
   return (
     <motion.div
-      layout
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: index * 0.03, duration: 0.25 }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.2 }}
       onClick={onSelect}
       className="group relative bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-card cursor-pointer active:scale-[0.98] transition-transform duration-150"
     >
