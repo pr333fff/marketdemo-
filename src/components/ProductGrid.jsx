@@ -70,7 +70,7 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
         
         {/* Badge */}
         {product.badge && (
-          <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide bg-white/90 backdrop-blur-sm text-slate-700 shadow-sm">
+          <div className="absolute top-1.5 left-1.5 px-1.5 py-0.5 rounded text-[8px] font-semibold uppercase tracking-wide bg-white text-slate-700 shadow-sm">
             {product.badge}
           </div>
         )}
@@ -79,12 +79,12 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
         <motion.button
           whileTap={{ scale: 0.85 }}
           onClick={handleFavorite}
-          className="absolute top-1.5 right-1.5 w-6 h-6 flex items-center justify-center rounded-full bg-white/80 backdrop-blur-sm shadow-sm"
+          className="absolute top-1.5 right-1.5 w-6 h-6 flex items-center justify-center rounded-full bg-white/95 shadow-md"
         >
           <Heart 
             size={14} 
             weight={isFavorite ? 'fill' : 'regular'} 
-            className={isFavorite ? 'text-rose-500' : 'text-slate-400'}
+            className={isFavorite ? 'text-rose-500' : 'text-slate-500'}
           />
         </motion.button>
         
@@ -92,7 +92,7 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
         <motion.button
           whileTap={{ scale: 0.85 }}
           onClick={onAddToCart}
-          className="absolute bottom-1.5 right-1.5 w-6 h-6 flex items-center justify-center rounded-full bg-white/90 backdrop-blur-sm text-slate-700 shadow-sm"
+          className="absolute bottom-1.5 right-1.5 w-6 h-6 flex items-center justify-center rounded-full bg-white shadow-md text-slate-700"
         >
           <Plus size={14} weight="bold" />
         </motion.button>
