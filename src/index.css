@@ -7,23 +7,38 @@
   --tg-theme-text-color: #18181b;
   --tg-theme-hint-color: #71717a;
   --tg-theme-link-color: #0ea5e9;
-  --tg-theme-button-color: #0ea5e9;
+  --tg-theme-button-color: #3b82f6;
   --tg-theme-button-text-color: #ffffff;
   --tg-theme-secondary-bg-color: #f4f4f5;
   --card-bg: #ffffff;
   --surface-bg: #f4f4f5;
   --surface-border: #e4e4e7;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  --card-shadow-hover: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Тёмная тема */
 .dark {
-  --tg-theme-bg-color: #18181b;
-  --tg-theme-text-color: #fafafa;
-  --tg-theme-hint-color: #a1a1aa;
-  --tg-theme-secondary-bg-color: #27272a;
-  --card-bg: #27272a;
-  --surface-bg: #27272a;
-  --surface-border: #3f3f46;
+  --tg-theme-bg-color: #0f0f0f;
+  --tg-theme-text-color: #f5f5f5;
+  --tg-theme-hint-color: #8b8b8b;
+  --tg-theme-button-color: #3b82f6;
+  --tg-theme-secondary-bg-color: #1a1a1a;
+  --card-bg: #1a1a1a;
+  --surface-bg: #1a1a1a;
+  --surface-border: #2a2a2a;
+  --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.5);
+}
+
+/* Тёмная тема - глубина и акценты */
+.dark .card-elevated {
+  background: linear-gradient(145deg, #1e1e1e, #1a1a1a);
+  border: 1px solid #2a2a2a;
+}
+
+.dark .glow-accent {
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.15);
 }
 
 * {

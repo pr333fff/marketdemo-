@@ -13,7 +13,7 @@ export default function BottomNav({ activeTab, onTabChange }) {
   ]
 
   return (
-    <nav className="fixed bottom-0 inset-x-0 z-50 bg-[var(--tg-theme-bg-color)] backdrop-blur-xl border-t border-[var(--surface-border)] safe-bottom">
+    <nav className="fixed bottom-0 inset-x-0 z-50 bg-[var(--tg-theme-bg-color)]/95 backdrop-blur-xl border-t border-[var(--surface-border)] safe-bottom">
       <div className="flex items-center justify-around h-16 px-4">
         {tabs.map((tab) => {
           const isActive = activeTab === tab.id
@@ -41,7 +41,7 @@ export default function BottomNav({ activeTab, onTabChange }) {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
-                    className="absolute -top-1 -right-2 min-w-[18px] h-[18px] flex items-center justify-center px-1 rounded-full bg-rose-500 text-white text-[10px] font-bold"
+                    className="absolute -top-1 -right-2 min-w-[18px] h-[18px] flex items-center justify-center px-1 rounded-full bg-[var(--tg-theme-button-color)] text-white text-[10px] font-bold"
                   >
                     {tab.badge > 99 ? '99+' : tab.badge}
                   </motion.div>
@@ -58,7 +58,7 @@ export default function BottomNav({ activeTab, onTabChange }) {
               {isActive && (
                 <motion.div
                   layoutId="activeTab"
-                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-[var(--tg-theme-button-color)]"
+                  className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-1.5 h-1.5 rounded-full bg-[var(--tg-theme-button-color)]"
                   transition={{ type: 'spring', stiffness: 500, damping: 35 }}
                 />
               )}

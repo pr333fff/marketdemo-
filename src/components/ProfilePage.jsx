@@ -41,12 +41,12 @@ export default function ProfilePage() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 p-5 text-white"
+          className="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 p-5 text-white"
         >
           {/* Background pattern */}
-          <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0 opacity-20">
             <div className="absolute top-0 right-0 w-40 h-40 rounded-full bg-white blur-3xl" />
-            <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-white blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 rounded-full bg-blue-300 blur-3xl" />
           </div>
           
           <div className="relative">
@@ -111,7 +111,7 @@ export default function ProfilePage() {
       
       {/* Menu */}
       <div className="px-4">
-        <div className="bg-[var(--card-bg)] rounded-2xl overflow-hidden">
+        <div className="bg-[var(--card-bg)] rounded-2xl overflow-hidden border border-[var(--surface-border)]" style={{ boxShadow: 'var(--card-shadow)' }}>
           <MenuItem 
             icon={ShoppingBag} 
             label="Мои заказы" 
@@ -153,9 +153,10 @@ function StatCard({ icon: Icon, label, value, color, small }) {
     <motion.div
       initial={{ opacity: 0, scale: 0.9 }}
       animate={{ opacity: 1, scale: 1 }}
-      className="p-4 rounded-2xl bg-[var(--card-bg)]"
+      className="p-4 rounded-2xl bg-[var(--card-bg)] border border-[var(--surface-border)]"
+      style={{ boxShadow: 'var(--card-shadow)' }}
     >
-      <div className={`w-10 h-10 rounded-xl ${color} bg-opacity-10 flex items-center justify-center mb-3`}>
+      <div className={`w-10 h-10 rounded-xl ${color} bg-opacity-15 flex items-center justify-center mb-3`}>
         <Icon size={20} className={color.replace('bg-', 'text-')} />
       </div>
       <p className={`font-bold text-[var(--tg-theme-text-color)] ${small ? 'text-sm' : 'text-lg'}`}>

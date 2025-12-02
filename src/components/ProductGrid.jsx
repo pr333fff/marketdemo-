@@ -58,7 +58,8 @@ function ProductCard({ product, index, onSelect, onAddToCart }) {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.2 }}
       onClick={onSelect}
-      className="group relative bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-card cursor-pointer active:scale-[0.98] transition-transform duration-150"
+      className="group relative bg-[var(--card-bg)] rounded-2xl overflow-hidden border border-[var(--surface-border)] cursor-pointer active:scale-[0.98] transition-all duration-150"
+      style={{ boxShadow: 'var(--card-shadow)' }}
     >
       {/* Icon instead of image */}
       <div className="relative overflow-hidden">

@@ -28,21 +28,21 @@ function App() {
       }
       
       // Применяем тему Telegram
-      const bgColor = tg.themeParams.bg_color || (isDark ? '#18181b' : '#ffffff')
-      const textColor = tg.themeParams.text_color || (isDark ? '#fafafa' : '#18181b')
-      const hintColor = tg.themeParams.hint_color || (isDark ? '#a1a1aa' : '#71717a')
-      const secondaryBg = tg.themeParams.secondary_bg_color || (isDark ? '#27272a' : '#f4f4f5')
+      const bgColor = isDark ? '#0f0f0f' : '#ffffff'
+      const textColor = isDark ? '#f5f5f5' : '#18181b'
+      const hintColor = isDark ? '#8b8b8b' : '#71717a'
+      const secondaryBg = isDark ? '#1a1a1a' : '#f4f4f5'
       
       document.documentElement.style.setProperty('--tg-theme-bg-color', bgColor)
       document.documentElement.style.setProperty('--tg-theme-text-color', textColor)
       document.documentElement.style.setProperty('--tg-theme-hint-color', hintColor)
       document.documentElement.style.setProperty('--tg-theme-secondary-bg-color', secondaryBg)
-      document.documentElement.style.setProperty('--tg-theme-button-color', tg.themeParams.button_color || '#0ea5e9')
+      document.documentElement.style.setProperty('--tg-theme-button-color', tg.themeParams.button_color || '#3b82f6')
       
       // Устанавливаем переменные для карточек
-      document.documentElement.style.setProperty('--card-bg', isDark ? '#27272a' : '#ffffff')
+      document.documentElement.style.setProperty('--card-bg', isDark ? '#1a1a1a' : '#ffffff')
       document.documentElement.style.setProperty('--surface-bg', secondaryBg)
-      document.documentElement.style.setProperty('--surface-border', isDark ? '#3f3f46' : '#e4e4e7')
+      document.documentElement.style.setProperty('--surface-border', isDark ? '#2a2a2a' : '#e4e4e7')
     }
     
     setTimeout(() => setIsReady(true), 100)
