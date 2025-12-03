@@ -8,6 +8,7 @@ import ProductModal from './components/ProductModal'
 import BottomNav from './components/BottomNav'
 import ProfilePage from './components/ProfilePage'
 import CartPage from './components/CartPage'
+import AdminPage from './components/AdminPage'
 
 function App() {
   const { selectedProduct, setSelectedProduct } = useStore()
@@ -71,10 +72,16 @@ function App() {
       )}
       
       {activeTab === 'profile' && (
-        <ProfilePage />
+        <ProfilePage onNavigateToAdmin={() => setActiveTab('admin')} />
       )}
       
-      <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+      {activeTab === 'admin' && (
+        <AdminPage onBack={() => setActiveTab('profile')} />
+      )}
+      
+      {activeTab !== 'admin' && (
+        <BottomNav activeTab={activeTab} onTabChange={setActiveTab} />
+      )}
       
       <AnimatePresence>
         {selectedProduct && (

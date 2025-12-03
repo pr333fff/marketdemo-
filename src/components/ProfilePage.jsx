@@ -8,10 +8,11 @@ import {
   Bell,
   Gear,
   CaretRight,
-  Crown
+  Crown,
+  ShieldCheck
 } from '@phosphor-icons/react'
 
-export default function ProfilePage() {
+export default function ProfilePage({ onNavigateToAdmin }) {
   // Демо-данные пользователя
   const user = {
     name: 'Пользователь',
@@ -131,7 +132,14 @@ export default function ProfilePage() {
             icon={Gear} 
             label="Настройки" 
             subtitle="Параметры аккаунта"
+          />
+          <MenuItem 
+            icon={ShieldCheck} 
+            label="Админ-панель" 
+            subtitle="Управление магазином"
             isLast
+            onClick={onNavigateToAdmin}
+            isAdmin
           />
         </div>
       </div>
@@ -167,19 +175,22 @@ function StatCard({ icon: Icon, label, value, color, small }) {
   )
 }
 
-function MenuItem({ icon: Icon, label, subtitle, isLast }) {
+function MenuItem({ icon: Icon, label, subtitle, isLast, onClick, isAdmin }) {
   return (
     <motion.button
       whileTap={{ scale: 0.98 }}
+      onClick={onClick}
       className={`w-full flex items-center gap-4 p-4 text-left hover:opacity-80 transition-opacity ${
         !isLast ? 'border-b border-[var(--surface-border)]' : ''
-      }`}
+      } ${isAdmin ? 'bg-gradient-to-r from-blue-500/10 to-indigo-500/10' : ''}`}
     >
-      <div className="w-10 h-10 rounded-xl bg-[var(--surface-bg)] flex items-center justify-center">
-        <Icon size={20} className="text-[var(--tg-theme-text-color)]" />
+      <div className={`w-10 h-10 rounded-xl flex items-center justify-center ${
+        isAdmin ? 'bg-gradient-to-br from-blue-500 to-indigo-600' : 'bg-[var(--surface-bg)]'
+      }`}>
+        <Icon size={20} className={isAdmin ? 'text-white' : 'text-[var(--tg-theme-text-color)]'} />
       </div>
       <div className="flex-1">
-        <p className="text-sm font-medium text-[var(--tg-theme-text-color)]">{label}</p>
+        <p className={`text-sm font-medium ${isAdmin ? 'text-blue-400' : 'text-[var(--tg-theme-text-color)]'}`}>{label}</p>
         <p className="text-xs text-[var(--tg-theme-hint-color)]">{subtitle}</p>
       </div>
       <CaretRight size={18} className="text-[var(--tg-theme-hint-color)]" />
